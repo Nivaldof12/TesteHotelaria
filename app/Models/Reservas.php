@@ -20,4 +20,21 @@ class Reservas extends Model
     {
         return $this->belongsTo(Clientes::class);
     }
+
+    /**
+     * Essa consulta visualiza as reservar feitas por um cliente específico pelo email.
+     *
+     * @param string $email
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function reservasPorCliente($email)
+    {
+        $cliente = Clientes::where('email', $email)->first();
+
+        if ($cliente) {
+            return self::where('cliente_id', $cliente->id)->get();
+        } else {
+            return response()->json(['error' => 'O email que você digitou não está acossado a nenhuma reserva.'], 500); // Retorna uma mensagem de erro se a reserva não for encontrada.
+        }
+    }
 }

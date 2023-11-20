@@ -8,11 +8,19 @@ use Illuminate\Http\Request;
 class ReservasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista todas as reservas.
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        try {
+            $reservas = Reservas::all();
+
+            return response()->json(['reservas' => $reservas], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao listar todas as reservas.'], 500);
+        }
     }
 
     /**
@@ -32,11 +40,24 @@ class ReservasController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Lista as reservas de um cliente específico pelo email.
+     *
+     * @param string $email
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Reservas $reservas)
+    public function show($email = null)
     {
-        //
+        try {
+            if ($email) {
+                $reservas = Reservas::reservasPorCliente($email);
+            } else {
+                $reservas = Reservas::all();
+            }
+
+            return response()->json(['reservas' => $reservas], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao listar reservas do cliente.'], 500);
+        }
     }
 
     /**
