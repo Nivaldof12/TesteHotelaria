@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,56 @@ Route::get('/', function () {
     return view('home');
 });
 
-//Rotas Referente a Quartos
+//Rotas Quartos:
 //Lista todos os quartos disponíveis.
-Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
+if (app()->environment('local')) {
+    Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
+} else {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
+    });
+}
 
-//Reservas:
+//Rotas Reservas:
 //Lista todas as reservas ou com os métodos de consulta por data.
 // /reservas?data=
-Route::get('/reservas', [ReservasController::class, 'index']);
+if (app()->environment('local')) {
+    Route::get('/reservas', [ReservasController::class, 'index']);
+} else {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/reservas', [ReservasController::class, 'index']);
+    });
+}
 
 //Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos, 
 //Nesse endpoint, o cliente está sendo filtado pelo email.
 // E quando consultado as informações do cliente são armazenadas no Redis.
-Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
+if (app()->environment('local')) {
+    Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
+} else {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
+    });
+}
 
 //E nesse endpoint, o cliente está sendo filtado pelo id.
-Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);
+if (app()->environment('local')) {
+    Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);
+} else {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);
+    });
+}
+
+//Rotas da autenticação:
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

@@ -14,13 +14,6 @@
           <h1>Documentação de teste</h1>
           <h2>para ser testado via Postman ou insnomnia</h2>
         </div>
-      
-        <a href="#logar" class="collapse-title">Login Autenticação</a>
-        <div id="logar" class="collapse">
-          Primeiro faça o login para conseguir acessar a API.<br>
-          <a href="/dashboard">Fazer Login</a><br>
-          <a href="/register"> Registrar</a>
-        </div>
 
         <a href="#resumo" class="collapse-title">Resumo</a>
         <div id="resumo" class="collapse">
