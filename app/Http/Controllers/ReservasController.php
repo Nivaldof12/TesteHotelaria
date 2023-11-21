@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class ReservasController extends Controller
 {
@@ -42,12 +43,27 @@ class ReservasController extends Controller
     public function show($email = null)
     {
         try {
+            $key = "reservas_$email";
+            $expiration = 600; // 10 minutos
+    
             if ($email) {
-                $reservas = Reservas::reservasPorCliente($email);
+                // Tentar obter as reservas do Redis
+                $reservas = Redis::get($key);
+    
+                if (!$reservas) {
+                    // Se não estiver no Redis, obter do banco de dados
+                    $reservas = Reservas::reservasPorCliente($email);
+    
+                    // Armazenar as reservas no Redis com um tempo de expiração
+                    Redis::setex($key, $expiration, json_encode($reservas));
+                } else {
+                    // Se estiver no Redis, decodificar as reservas
+                    $reservas = json_decode($reservas);
+                }
             } else {
                 $reservas = Reservas::all();
             }
-
+    
             return response()->json(['reservas' => $reservas], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Erro ao listar reservas do cliente.'], 500);

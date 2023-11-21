@@ -26,10 +26,12 @@ Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis'
 
 //Reservas:
 //Lista todas as reservas ou com os métodos de consulta por data.
+// /reservas?data=
 Route::get('/reservas', [ReservasController::class, 'index']);
 
 //Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos, 
 //Nesse endpoint, o cliente está sendo filtado pelo email.
+// E quando consultado as informações do cliente são armazenadas no Redis.
 Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
 
 //E nesse endpoint, o cliente está sendo filtado pelo id.
