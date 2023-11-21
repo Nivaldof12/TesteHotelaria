@@ -17,15 +17,20 @@ use App\Http\Controllers\ReservasController;
 
 // Página Home
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //Rotas Referente a Quartos
 //Lista todos os quartos disponíveis.
 Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
 
-//Rotas Referente a Reservas
-//Lista todas as reservas feitas.
+//Reservas:
+//Lista todas as reservas ou com os métodos de consulta por data.
 Route::get('/reservas', [ReservasController::class, 'index']);
-//Lista todas as reservas especificas feitas por email.
+
+//Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos, 
+//Nesse endpoint, o cliente está sendo filtado pelo email.
 Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
+
+//E nesse endpoint, o cliente está sendo filtado pelo id.
+Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);

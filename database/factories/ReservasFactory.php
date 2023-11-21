@@ -14,9 +14,12 @@ class ReservasFactory extends Factory
 
     public function definition()
     {
+        $dataCheckin = $this->faker->dateTimeThisMonth;
+        $dataCheckout = $this->faker->dateTimeBetween($dataCheckin, '+30 days');
+
         return [
-            'data_checkin' => $this->faker->date(),
-            'data_checkout' => $this->faker->date(),
+            'data_checkin' => $dataCheckin,
+            'data_checkout' => $dataCheckout,
             'quarto_id' => \App\Models\Quartos::factory(),
             'cliente_id' => \App\Models\Clientes::factory(),
         ];

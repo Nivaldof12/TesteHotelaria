@@ -8,35 +8,29 @@ use Illuminate\Http\Request;
 class ReservasController extends Controller
 {
     /**
-     * Lista todas as reservas.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function index()
+    * Lista todas as reservas ou as reservas dentro de um intervalo de datas.
+    *
+    * @param \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function index(Request $request)
     {
         try {
-            $reservas = Reservas::all();
-
+            $dataFiltro = $request->input('data');
+    
+            $query = Reservas::query();
+    
+            if ($dataFiltro) {
+                $query->whereDate('data_checkin', '<=', $dataFiltro)
+                    ->whereDate('data_checkout', '>=', $dataFiltro);
+            }
+    
+            $reservas = $query->get();
+    
             return response()->json(['reservas' => $reservas], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Erro ao listar todas as reservas.'], 500);
+            return response()->json(['error' => 'Erro ao listar reservas.'], 500);
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -61,26 +55,19 @@ class ReservasController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Reservas $reservas)
+    * Lista todas as reservas feitas por um cliente específico (ID).
+    *
+    * @param int $clienteId
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function listarPorClienteId($clienteId)
     {
-        //
-    }
+        try {
+            $reservas = Reservas::where('cliente_id', $clienteId)->get();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Reservas $reservas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Reservas $reservas)
-    {
-        //
+            return response()->json(['reservas' => $reservas], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao listar reservas do cliente.'], 500);
+        }
     }
 }
