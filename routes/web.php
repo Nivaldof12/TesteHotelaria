@@ -21,56 +21,31 @@ Route::get('/', function () {
     return view('home');
 });
 
-//OBS: Todas as rotas tem autenticação apenas quando não estão em localhost.
+//OBS: Todas as rotas tem autenticação, tem que fazer o login para poder acessar.
 
-//Rotas Quartos:
-//Lista todos os quartos disponíveis.
-if (app()->environment('local')) {
+Route::middleware(['auth'])->group(function () {
+    
+    //Rotas Quartos:
+    //Lista todos os quartos disponíveis.
+    // Rotas Referentes a Quartos   
     Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
-} else {
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
-    });
-}
-if (app()->environment('local')) {
+
+    //Método para consultar todos os quartos ocupados em uma data específica.
     Route::get('/quartos', [QuartoController::class, 'quartosOcupados']);
-} else {
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/quartos', [QuartoController::class, 'quartosOcupados']);
-    });
-}
 
-
-//Rotas Reservas:
-//Lista todas as reservas ou com o método de consulta por data.
-// /reservas?data=
-if (app()->environment('local')) {
+    //Rotas Reservas:
+    //Lista todas as reservas ou com o método de consulta por data.
+    // /reservas?data=
     Route::get('/reservas', [ReservasController::class, 'index']);
-} else {
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/reservas', [ReservasController::class, 'index']);
-    });
-}
 
-//Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos. 
-//Nesse endpoint, o cliente está sendo filtado pelo email.
-// E quando consultado as informações do cliente são armazenadas no Redis.
-if (app()->environment('local')) {
+    //Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos. 
+    //Nesse endpoint, o cliente está sendo filtado pelo email.
+    // E quando consultado as informações do cliente são armazenadas no Redis.
     Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
-} else {
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/reservas/{email?}', [ReservasController::class, 'show']);
-    });
-}
 
-// No endpoint abaixo, as reservas estão sendo retornadas a partir do id do cliente.
-if (app()->environment('local')) {
+    // No endpoint abaixo, as reservas estão sendo retornadas a partir do id do cliente.
     Route::get('/reservas/id/{clienteId}', [ReservasController::class, 'listarPorClienteId']);
-} else {
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/reservas/id/{clienteId}', [ReservasController::class, 'listarPorClienteId']);
-    });
-}
+});
 
 //Rotas da autenticação:
 Route::get('/dashboard', function () {
