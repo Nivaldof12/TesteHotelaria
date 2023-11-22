@@ -86,8 +86,26 @@ No endpoint abaixo, as reservas estão sendo retornadas a partir do id do client
 
 ## :red_circle: Redis
 
+### 1.1 No arquivo de configuração do Laravel, configure o Laravel para usar Redis como driver de cache. Certifique-se de que o Laravel utilize Redis para armazenar informações temporárias relevantes para reservas. 
+Configurei o Laravel para usar o Redis como driver de cache.
+
+### 1.2 Escreva um código que armazene temporariamente no Redis a lista de quartos disponíveis obtida na primeira questão, utilizando uma chave chamada quartos_disponiveis. Recupere essa lista do Redis e retorne-a como resposta atualizando a parte 1.1 do Teste.
+Eu fiz a chave quartos_disponiveis e ela armazena as informações em cache do endpoint "**/quartos/disponiveis**" por 10 minutos.
+
+Assim que você acessar `/quartos/disponiveis`, já pode utilizar a chave abaixo:
+
+    GET quartos_disponiveis
+<div align="center">
+    <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/ed6aefe0-325c-44d4-8c15-56e555814a6c" alt="API quartos disponíveis" >
+    <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/2d4722ce-d8d2-41c4-a444-40d0c11b30a9" alt="Chave quartos_disponiveis" >
+</div>
+
 ## :round_pushpin: Endpoints
-![endpoints](https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/a559e04f-a993-4ad3-8d1a-e1fa690414b2)
+
+<div align="center">
+    ![endpoints](https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/a559e04f-a993-4ad3-8d1a-e1fa690414b2)
+</div>
+
 ## :mag_right: Observações Finais
 
 - Certifique-se de que o código é limpo, bem comentado e segue as melhores práticas do Laravel.
