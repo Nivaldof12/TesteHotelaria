@@ -55,6 +55,8 @@ Adicione um método no modelo para recuperar todas as reservas feitas por um cli
 
 ### :round_pushpin: Endpoint 1.2
 
+## :round_pushpin: Endpoints
+![endpoints](https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/a559e04f-a993-4ad3-8d1a-e1fa690414b2)
 ## :mag_right: Observações Finais
 
 - Certifique-se de que o código é limpo, bem comentado e segue as melhores práticas do Laravel.
