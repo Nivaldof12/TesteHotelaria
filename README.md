@@ -1,3 +1,12 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
+
 ## :package: Stack
 
 - **PHP 8.10** de Linguagem de programação.
@@ -28,6 +37,23 @@ Migrate:
 Seeder:
 
     php artisan db:seed
+Após executar todos esses comandos, execute o comando abaixo para iniciar a aplicação.
+
+    php artisan serve
+
+## :pushpin: Teste
+
+### Parte 1:
+
+1.1 Crie uma rota em Laravel que corresponda a um controlador chamado QuartoController e ao método listarDisponiveis.
+O método listarDisponiveis deve retornar uma lista de quartos disponíveis para reserva. Utilize Eloquent para acessar os dados.
+
+### :round_pushpin: Endpoint 1.1
+
+1.2 Crie um modelo Eloquent chamado Reserva para a tabela reservas.
+Adicione um método no modelo para recuperar todas as reservas feitas por um cliente específico.
+
+### :round_pushpin: Endpoint 1.2
 
 ## :mag_right: Observações Finais
 
@@ -35,5 +61,6 @@ Seeder:
 - Você pode utilizar as versões mais recentes do Laravel, PostgreSQL e Redis.
 - O teste pode ser feito em um projeto Laravel novo ou em um projeto existente, conforme apropriado.
 - Esse teste abrange tópicos relacionados à gestão de quartos e reservas em um contexto hoteleiro, utilizando Laravel, PostgreSQL e Redis.
+- A aplicação deve usar autenticação para todas as rotas.
 - **OBSERVAÇÃO:** O teste pode ser feito só como api ou não.
 No caso de API o teste tem que ter uma documentação de teste para ser testado via Postman.
