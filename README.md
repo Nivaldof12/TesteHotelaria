@@ -91,6 +91,10 @@ Configurei o Laravel para usar o Redis como driver de cache e configurei o redis
 
 Quando o endpoint `/reservas/{email?}` é utilizado ele armazenado por 10 minutos a reserva do cliente que foi consultado.
 
+Assim que você acessar `/reservas/{email?}`, já pode utilizar a chave abaixo:
+
+    GET reservas_$email
+
 <div align="center">
     <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/bbf2cbb3-b40e-4bba-a0aa-b02222295c9a" alt="Chave quartos_disponiveis" >
     <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/2d4722ce-d8d2-41c4-a444-40d0c11b30a9" alt="Chave quartos_disponiveis" >
