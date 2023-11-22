@@ -21,16 +21,16 @@ Route::get('/', function () {
     return view('home');
 });
 
-//OBS: Todas as rotas tem autenticação, tem que fazer o login para poder acessar.
+//OBS: Todas as rotas exigem autenticação; é necessário fazer o login para acessá-las.
 
 Route::middleware(['auth'])->group(function () {
     
     //Rotas Quartos:
     //Lista todos os quartos disponíveis.
-    // Rotas Referentes a Quartos   
     Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
 
     //Método para consultar todos os quartos ocupados em uma data específica.
+    // /quartos?data=
     Route::get('/quartos', [QuartoController::class, 'quartosOcupados']);
 
     //Rotas Reservas:
