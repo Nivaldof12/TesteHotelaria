@@ -103,7 +103,7 @@ Assim que você acessar `/quartos/disponiveis`, já pode utilizar a chave abaixo
 ## :round_pushpin: Endpoints
 
 <div align="center">
-    <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/a559e04f-a993-4ad3-8d1a-e1fa690414b2" alt="Endpoints" >
+    <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/9859773c-42c2-4526-949a-9cd7d827817c" alt="Endpoints" >
 </div>
 
 ## :mag_right: Observações Finais
