@@ -32,31 +32,25 @@
             <div class="swagger-ui">
                 <div style="height: auto; border: none; margin: 0px; padding: 0px;">
                   <div class="opblock opblock-get" id="operations-default-get_accounts">
-                    <div class="opblock-summary opblock-summary-get"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/default/get_accounts"><span>/accounts</span></a>
+                    <div class="opblock-summary opblock-summary-get"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="/quartos/disponiveis"><span>/quartos/disponiveis</span></a>
                       </span>
-                      <div class="opblock-summary-description">Fetches a list of Accounts.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
+                      <div class="opblock-summary-description">Lista de todos os quartos disponíveis.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
                   <div class="opblock opblock-post" id="operations-default-post_account">
-                    <div class="opblock-summary opblock-summary-post"><span class="opblock-summary-method">POST</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/default/post_account"><span>/accounts</span></a>
+                    <div class="opblock-summary opblock-summary-post"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="/reservas"><span>/reservas</span></a>
                       </span>
-                      <div class="opblock-summary-description">Saves a new account.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
+                      <div class="opblock-summary-description">Lista de todas as reservas.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
                   <div class="opblock opblock-put" id="operations-default-update_account_by_id">
-                    <div class="opblock-summary opblock-summary-put"><span class="opblock-summary-method">PUT</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/default/update_account_by_id"><span>/accounts/{id}</span></a>
+                    <div class="opblock-summary opblock-summary-put"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="/reservas?data=2023-11-22"><span>/reservas?data={data}</span></a>
                       </span>
-                      <div class="opblock-summary-description">Updates an existing Account by ID.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
+                      <div class="opblock-summary-description">Lista de todas as reservas em uma data específica.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
                   <div class="opblock opblock-patch" id="operations-default-patch_account_by_id">
-                    <div class="opblock-summary opblock-summary-patch"><span class="opblock-summary-method">PATCH</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/default/patch_account_by_id"><span>/accounts/{id}</span></a>
+                    <div class="opblock-summary opblock-summary-patch"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="/reservas/"><span>/reservas/{email}</span></a>
                       </span>
-                      <div class="opblock-summary-description">Updates specified attributes of an existing Account.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
+                      <div class="opblock-summary-description">API para listar todas as reservas feitas por um cliente específico.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
                   <div class="opblock opblock-delete" id="operations-default-delete_account_by_id">
-                    <div class="opblock-summary opblock-summary-delete"><span class="opblock-summary-method">DELETE</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/default/delete_account_by_id"><span>/accounts/{id}</span></a>
+                    <div class="opblock-summary opblock-summary-delete"><span class="opblock-summary-method">GET</span><span class="opblock-summary-path"><a class="nostyle" href="/reservas/id/"><span>/reservas/id/{id}</span></a>
                       </span>
-                      <div class="opblock-summary-description">Deletes a Account by ID.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
-                  <div class="opblock opblock-head" id="operations-dataAccess-get-dataset-file-operation">
-                    <div class="opblock-summary opblock-summary-head"><span class="opblock-summary-method" style="
-                  background: #864CCC;
-              ">HEAD</span><span class="opblock-summary-path"><a class="nostyle" href="#/operations/dataAccess/get-dataset-file-operation"><span>/files/{dataSetFileId}</span></a>
-                      </span>
-                      <div class="opblock-summary-description">Gets headers in response signifying what is allowed on this file</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>
+                      <div class="opblock-summary-description">Lista de reservas por id do cliente.</div><button class="authorization__btn unlocked" aria-label="authorization button unlocked"><svg width="20" height="20"><use href="#unlocked" xlink:href="#unlocked"></use></svg></button></div><noscript></noscript></div>                 
                 </div>
               
               </div>

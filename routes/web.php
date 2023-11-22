@@ -42,7 +42,7 @@ if (app()->environment('local')) {
     });
 }
 
-//Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos, 
+//Como foi solicitado, criei um método para listar todas as reservas feitas por clientes específicos. 
 //Nesse endpoint, o cliente está sendo filtado pelo email.
 // E quando consultado as informações do cliente são armazenadas no Redis.
 if (app()->environment('local')) {
