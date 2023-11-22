@@ -46,10 +46,25 @@ Após executar todos esses comandos, execute o comando abaixo para iniciar a apl
 ### :round_pushpin: Endpoint 1.1
 
 #### 1.1 Crie uma rota em Laravel que corresponda a um controlador chamado QuartoController e ao método listarDisponiveis. O método listarDisponiveis deve retornar uma lista de quartos disponíveis para reserva. Utilize Eloquent para acessar os dados.
+Criei o Controller QuartoController e o método listarDisponiveis. O endpoint a seguir está exibindo os quartos disponíveis para reserva com base no valor booleano "true" da coluna "disponivel":
+
+    /quartos/disponiveis
 
 ### :round_pushpin: Endpoint 1.2
 
 #### 1.2 Crie um modelo Eloquent chamado Reserva para a tabela reservas. Adicione um método no modelo para recuperar todas as reservas feitas por um cliente específico.
+
+Eu disponibilizei dois endpoints para recuperar as reservas feitas por um cliente específico:
+
+Recuperando cliente específico por e-mail:
+
+    /reservas/{email?}
+Recuperando cliente específico por ID do cliente:
+
+    /reservas/id/{clienteId}
+Além disso, desenvolvi o endpoint para listar todas as reservas:
+
+    /reservas
 
 ### :round_pushpin: Endpoint 1.3
 
@@ -65,6 +80,9 @@ Também criei um endpoint para apresentar os dados de uma perspectiva diferente.
 ### :round_pushpin: Endpoint 1.4
 
 #### Liste reservas de clientes com um campo id, crie um relacionamento no modelo Cliente que retorne todas as reservas associadas a esse cliente.
+No endpoint abaixo, as reservas estão sendo retornadas a partir do id do cliente:
+    
+    /reservas/id/{clienteId}
 
 ## :red_circle: Redis
 
