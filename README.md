@@ -13,6 +13,7 @@
 - **Laravel 10.32.1** para o framework.
 - **PostgreSQL** para o banco de dados.
 - **Redis** como driver de cache.
+- **Breeze** para fazer autenticação.
 
 ## :clipboard: Comandos
 Para preparar o seu ambiente de desenvolvimento, utilize os códigos fornecidos abaixo. A seguir, apresentarei alguns comandos para otimizar o ambiente e deixá-lo pronto para testes.
