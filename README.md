@@ -6,6 +6,28 @@
 - **Redis** como driver de cache.
 
 ## :clipboard: Comandos
+Para preparar o seu ambiente de desenvolvimento, utilize os códigos fornecidos abaixo. A seguir, apresentarei alguns comandos para otimizar o ambiente e deixá-lo pronto para testes.
+
+### :blue_book: Database:
+Primeiro, acesse o projeto e navegue até o diretório .env para realizar a configuração do USERNAME e da PASSWORD referente ao seu banco de dados PostgreSQL.
+
+Em seguida, use o comando a seguir no **Query Tool** do **pgAdmin** para gerar o banco de dados denominado de "hotelaria".
+
+	CREATE DATABASE hotelaria;
+Após concluir essas etapas, seu banco de dados foi criado com sucesso.
+### :closed_book: Redis:
+Com o Redis instalado em sua máquina, utilize o comando abaixo no terminal para habilitar a interação com o Redis.
+	
+    redis-cli
+### :green_book: Migrate e Seeder:
+O Migrate e o Seeder têm a função de criar tabelas e preencher seu banco de dados. Execute os comandos a seguir na pasta do projeto.
+
+Migrate:
+
+    php artisan migrate
+Seeder:
+
+    php artisan db:seed
 
 ## :mag_right: Observações Finais
 
