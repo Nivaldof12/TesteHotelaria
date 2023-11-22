@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+//OBS: Todas as rotas tem autenticação apenas quando não estão em localhost.
+
 //Rotas Quartos:
 //Lista todos os quartos disponíveis.
 if (app()->environment('local')) {
@@ -30,9 +32,17 @@ if (app()->environment('local')) {
         Route::get('/quartos/disponiveis', [QuartoController::class, 'listarDisponiveis']);
     });
 }
+if (app()->environment('local')) {
+    Route::get('/quartos', [QuartoController::class, 'quartosOcupados']);
+} else {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/quartos', [QuartoController::class, 'quartosOcupados']);
+    });
+}
+
 
 //Rotas Reservas:
-//Lista todas as reservas ou com os métodos de consulta por data.
+//Lista todas as reservas ou com o método de consulta por data.
 // /reservas?data=
 if (app()->environment('local')) {
     Route::get('/reservas', [ReservasController::class, 'index']);
@@ -53,12 +63,12 @@ if (app()->environment('local')) {
     });
 }
 
-//E nesse endpoint, o cliente está sendo filtado pelo id.
+// No endpoint abaixo, as reservas estão sendo retornadas a partir do id do cliente.
 if (app()->environment('local')) {
-    Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);
+    Route::get('/reservas/id/{clienteId}', [ReservasController::class, 'listarPorClienteId']);
 } else {
     Route::middleware(['auth'])->group(function () {
-        Route::get('/reservas/id/{clienteId?}', [ReservasController::class, 'listarPorClienteId']);
+        Route::get('/reservas/id/{clienteId}', [ReservasController::class, 'listarPorClienteId']);
     });
 }
 
