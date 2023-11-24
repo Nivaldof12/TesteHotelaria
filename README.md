@@ -74,7 +74,7 @@ No exemplo abaixo, estou consultando todos os quartos ocupados em 22/11/2023:
 
     SELECT DISTINCT quartos.* FROM quartos JOIN reservas ON quartos.id = reservas.quarto_id WHERE '2023-11-22' BETWEEN reservas.data_checkin AND reservas.data_checkout;
 
-Endpoint para visualizar todos os quartos que estão ocupados em uma data específica. No exemplo abaixo, estou consultando todos os quartos ocupados em 22/11/2023:
+Endpoint para visualizar todos os quartos que estão ocupados em uma data específica. No exemplo abaixo, estou consultando todos os quartos ocupados em 25/11/2023:
 
     /quartos?data=2023-11-25
 
