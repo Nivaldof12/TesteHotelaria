@@ -122,14 +122,6 @@ Assim que você acessar `/quartos/disponiveis`, já pode utilizar a chave abaixo
     <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/9859773c-42c2-4526-949a-9cd7d827817c" alt="Endpoints" >
 </div>
 
-## :scissors: Não está conseguindo testar a API via Postman?
-#### Para desativar a autenticação, vá até /routes/web.php e comente o código nas linhas **26** e **48**.
-#### Dessa forma:
-
-<div align="center">
-    <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/8eac8309-1806-4ebe-90d0-25cfded8f347" alt="comentando código" >
-</div>
-
 ## :mag_right: Observações Finais
 
 - Certifique-se de que o código é limpo, bem comentado e segue as melhores práticas do Laravel.
