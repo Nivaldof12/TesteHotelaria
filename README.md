@@ -91,7 +91,7 @@ No endpoint abaixo, as reservas estão sendo retornadas a partir do id do client
 
 ## :red_circle: Redis
 
-### 1.1 No arquivo de configuração do Laravel, configure o Laravel para usar Redis como driver de cache. Certifique-se de que o Laravel utilize Redis para armazenar informações temporárias relevantes para reservas. 
+### 2.1 No arquivo de configuração do Laravel, configure o Laravel para usar Redis como driver de cache. Certifique-se de que o Laravel utilize Redis para armazenar informações temporárias relevantes para reservas. 
 Configurei o Laravel para usar o Redis como driver de cache e configurei o redis para armazenar uma informação temporária relevante para reservas.
 
 Quando o endpoint `/reservas/{email?}` é utilizado ele armazenado por 10 minutos a reserva do cliente que foi consultado.
@@ -105,7 +105,7 @@ Assim que você acessar `/reservas/{email?}`, já pode utilizar a chave abaixo:
     <img src="https://github.com/Nivaldof12/TesteHotelaria/assets/88409759/2d4722ce-d8d2-41c4-a444-40d0c11b30a9" alt="Chave quartos_disponiveis" >
 </div>
 
-### 1.2 Escreva um código que armazene temporariamente no Redis a lista de quartos disponíveis obtida na primeira questão, utilizando uma chave chamada quartos_disponiveis. Recupere essa lista do Redis e retorne-a como resposta atualizando a parte 1.1 do Teste.
+### 2.2 Escreva um código que armazene temporariamente no Redis a lista de quartos disponíveis obtida na primeira questão, utilizando uma chave chamada quartos_disponiveis. Recupere essa lista do Redis e retorne-a como resposta atualizando a parte 1.1 do Teste.
 Eu fiz a chave quartos_disponiveis e ela armazena as informações em cache do endpoint "**/quartos/disponiveis**" por 10 minutos.
 
 Assim que você acessar `/quartos/disponiveis`, já pode utilizar a chave abaixo:
